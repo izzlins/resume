@@ -11,20 +11,12 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.OPgUHzI8ayjbEGLw }}
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 
-        uses: actions/setup-node@v1
-      - name: Build
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies and build
         run: |
           npm ci
           npm run build
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "GitHub Action build docs" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.OPgUHzI8ayjbEGLw }}
