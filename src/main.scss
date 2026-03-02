@@ -1,14 +1,15 @@
-@import "../node_modules/compass-mixins/lib/compass/reset";
-@import "../node_modules/compass-mixins/lib/compass/css3";
+// 全局重置样式（替代 compass 的 box-sizing mixin）
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; // 原生 CSS 属性，替代 @include box-sizing(border-box)
+  user-select: none;
+}
 
+// 定义变量
 $color-gray: #d1d1d1;
 $color-green: #00b38a;
 $font-family: 'Helvetica Neue', Helvetica, Arial, "Microsoft YaHei", sans-serif;
-
-* {
-  @include box-sizing(border-box);
-  user-select: none;
-}
 
 body {
   color: #333;
@@ -20,6 +21,7 @@ body {
   background-color: #eee;
   overflow: auto;
   padding-top: 5px;
+
   @media screen and (max-width: 1024px) {
     padding-top: 0;
   }
@@ -28,7 +30,7 @@ body {
 a {
   text-decoration: none;
   color: $color-green;
-  @include transition(all .2s ease-in-out);
+  transition: all .2s ease-in-out; // 原生 CSS 属性，替代 @include transition
 }
 
 .last-modified {
@@ -40,9 +42,11 @@ a {
   margin-left: -500px;
   font-size: 12px;
   text-align: right;
+
   @media screen and (max-width: 1024px) {
     display: none;
   }
+
   @media print {
     display: none;
   }
@@ -56,9 +60,11 @@ a {
   margin-left: -500px;
   font-size: 12px;
   text-align: right;
+
   @media screen and (max-width: 1024px) {
     display: none;
   }
+
   @media print {
     display: none;
   }
@@ -68,13 +74,14 @@ a {
   position: relative;
   width: 1024px;
   margin: 50px auto;
-  @include border-radius(5px);
+  border-radius: 5px; // 原生 CSS 属性，替代 @include border-radius
   background-color: #fff;
   overflow: hidden;
+
   @media screen and (max-width: 1024px) {
     width: 100%;
     margin: 0;
-    @include border-radius(0);
+    border-radius: 0; // 原生 CSS 属性，替代 @include border-radius
   }
 }
 
@@ -84,9 +91,11 @@ a {
   color: #fff;
   background-color: $color-green;
   overflow: hidden;
+
   @media screen and (max-width: 720px) {
     padding: 25px 30px;
   }
+
   @media print {
     color: #000;
     background-color: #fff;
@@ -107,6 +116,7 @@ a {
   .info,
   .contact {
     width: 50%;
+
     @media screen and (max-width: 720px) {
       width: 100%;
       text-align: center;
@@ -120,6 +130,7 @@ a {
       font-family: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", $font-family;
       font-weight: 500;
       letter-spacing: 5px;
+
       @media screen and (max-width: 720px) {
         letter-spacing: 0;
         line-height: 1.25;
@@ -131,6 +142,7 @@ a {
         letter-spacing: 0;
         font-size: 24px;
         padding-left: 10px;
+
         @media screen and (max-width: 720px) {
           display: block;
           padding-left: 0;
@@ -144,6 +156,7 @@ a {
   .job {
     float: right;
     text-align: right;
+
     @media screen and (max-width: 720px) {
       text-align: center;
     }
@@ -151,6 +164,7 @@ a {
     h2 {
       display: inline-block;
       font-size: 24px;
+
       @media screen and (max-width: 720px) {
         border-top: 1px solid darken($color-green, 2%);
         margin: 5px auto 0;
@@ -174,6 +188,7 @@ a {
 
     ul {
       margin: 8px 0 4px;
+
       @media screen and (max-width: 720px) {
         text-align: center;
         margin: 16px 0 0;
@@ -181,15 +196,18 @@ a {
 
       & > li {
         height: 22px;
+
         @media screen and (max-width: 720px) {
           display: inline-block;
         }
 
         & > a {
           color: #fff;
+
           @media print {
             color: #000;
           }
+
           font-family: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", $font-family;
           font-size: 14px;
           line-height: 22px;
@@ -207,6 +225,7 @@ a {
           .iconfont {
             fill: #fff;
             vertical-align: text-top;
+
             @media screen and (max-width: 720px) {
               margin: 5px 8px;
             }
@@ -222,6 +241,7 @@ a {
   min-height: 200px;
   padding: 20px 30px 50px;
   overflow: hidden;
+
   @media screen and (max-width: 720px) {
     padding: 20px 20px 50px;
   }
@@ -229,6 +249,7 @@ a {
   .content-left,
   .content-right {
     width: 50%;
+
     @media screen and (max-width: 1024px) {
       width: 100%;
     }
@@ -295,7 +316,7 @@ a {
     min-width: 100px;
     margin: 0 auto;
     padding: 4px 10px;
-    @include border-radius(32px);
+    border-radius: 32px; // 原生 CSS 属性，替代 @include border-radius
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -318,6 +339,7 @@ a {
       display: inline-block;
       float: left;
       width: 25%;
+
       @media screen and (max-width: 720px) {
         width: 100%;
         margin-bottom: 5px;
@@ -354,7 +376,7 @@ a {
       font-size: 12px;
       line-height: 14px;
       border: 1px solid $color-gray;
-      @include border-radius(3px);
+      border-radius: 3px; // 原生 CSS 属性，替代 @include border-radius
       margin: 2px;
       padding: 0 3px;
       background-color: #f7f7f7;
@@ -365,7 +387,7 @@ a {
       font-size: 12px;
       line-height: 14px;
       border: 1px solid #f3f3f3;
-      @include border-radius(3px);
+      border-radius: 3px; // 原生 CSS 属性，替代 @include border-radius
       font-weight: 500;
       color: #444;
       margin: 2px;
@@ -385,7 +407,7 @@ a {
   display: inline-block;
   padding: 0 5px;
   border: 1px solid $color-green;
-  border-radius: 3px;
+  border-radius: 3px; // 原生 CSS 属性，替代 @include border-radius
   color: $color-green;
   font-family: Menlo, $font-family;
   font-size: 14px;
@@ -405,6 +427,7 @@ a {
     display: inline-block;
     color: $color-gray;
     margin-bottom: 25px;
+
     @media screen and (max-width: 1024px) {
       margin-top: 25px;
     }
